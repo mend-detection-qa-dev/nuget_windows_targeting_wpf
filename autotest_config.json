@@ -1,0 +1,32 @@
+{
+  "description": "Regression test for TKA-9919 NETSDK1100 fix - validates Windows-targeting WPF project (net6.0-windows) scans successfully on Linux",
+  "version": 1.1,
+  "base_config": {
+    "validate_scan_output": true,
+    "scan_output": {
+      "security_scan_report_conclusion": "failure",
+      "total_libs_scanned": {
+        "gte": 1
+      }
+    },
+    "validate_dependency_tree": true,
+    "dependency_tree": {
+      "check_dependency_tree_detection_status": true,
+      "expected_direct_dependencies_number": {
+        "gte": 1
+      },
+      "direct_dependencies_names_list": {
+        "contains": [
+          "Newtonsoft.Json"
+        ]
+      }
+    },
+    "validate_vulnerabilities_table": true,
+    "vulnerabilities_table": {
+      "check_vulnerabilities_table_structure": true,
+      "expected_total_vulnerabilities_number": {
+        "gte": 0
+      }
+    }
+  }
+}
